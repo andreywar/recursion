@@ -2,6 +2,18 @@
 #include <time.h>
 using namespace std;
 
+
+void array_generate(int N, int a[]) 
+{
+	srand(time(NULL));
+	for (int i = 0; i < N; i++)
+	{
+		a[i] = rand() % 100;
+		cout << a[i] << " ";
+	}
+}
+
+
 int search(int* array, int max_number, int current_index, int size)
 {
 	int temp = 0;
@@ -17,12 +29,7 @@ int main()
 	int N;
 	cin >> N;
 	int* a = new int[N];
-	srand(time(NULL));
-	for (int i = 0; i < N; i++)
-	{
-		a[i] = rand() % 100;
-		cout << a[i] << " ";
-	}
+	array_generate(N, a);
 	int max_index = search(a, a[0], 1, N);
 	cout << "\nMaximum element a[" << max_index << "]=" << a[max_index] << endl;
 	system("pause");
